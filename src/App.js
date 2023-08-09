@@ -1,23 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { useState } from 'react';
+import { AiFillCloseSquare } from 'react-icons/ai'
 function App() {
+  //Lista de tarefas
+  const [tarefas,setTarefas] = useState([
+    {
+      nome: "Dar comida pro cachorro"
+    },
+    {
+      nome: "Programar"
+    }
+  ])
+  //valor do input de texto
+  const [valor,setValor] = useState("")
+
+  //Deleta a tarefa clicada
+  const deletarTarefa = (nomeTarefa) =>{
+    setTarefas(tarefas.filter(tarefa => tarefa.nome !== nomeTarefa))
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <input type="text" value={valor} onChange={event => setValor(event.target.value)}/>
+
+      <button onClick={()=>{
+          setTarefas([...tarefas,{nome: valor}])
+          setValor("")
+        }}>Adicionar</button>
+      
+      {tarefas.map(tarefa => 
+          <div className='item'>
+            <AiFillCloseSquare className='btn-fechar' size={30} color={'red'} onClick={() => deletarTarefa(tarefa.nome)}/>
+            <h4>{tarefa.nome}</h4>
+          </div>
+      )}
     </div>
   );
 }
