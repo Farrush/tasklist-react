@@ -1,3 +1,9 @@
-# Lista de tarefas muito simples com react
+# Lista de tarefas simples com react
 
-Só uma lista de tarefas muito simples quase sem css
+### npm i
+instala os pacotes do projeto
+
+### npm start
+roda o projeto
+
+<img src="./print.png"/>

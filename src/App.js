@@ -1,38 +1,44 @@
 import './App.css';
 import { useState } from 'react';
-import { AiFillCloseSquare } from 'react-icons/ai'
+import Task from './components/task';
+
 function App() {
   //Lista de tarefas
   const [tarefas,setTarefas] = useState([
     {
-      nome: "Dar comida pro cachorro"
+      titulo: "Dar comida pro cachorro",
+      desc: "Na hora do almoço"
     },
     {
-      nome: "Programar"
+      titulo: "Programar",
+      desc: "React"
     }
   ])
   //valor do input de texto
-  const [valor,setValor] = useState("")
+  const [title,setTitle] = useState("")
+  const [desc,setDesc] = useState("")
 
   //Deleta a tarefa clicada
   const deletarTarefa = (nomeTarefa) =>{
-    setTarefas(tarefas.filter(tarefa => tarefa.nome !== nomeTarefa))
+    setTarefas(tarefas.filter(tarefa => tarefa.titulo !== nomeTarefa))
   }
   return (
     <div className="App">
 
-      <input type="text" value={valor} onChange={event => setValor(event.target.value)}/>
+      <h1>Lista de Tarefas</h1>
+      <input type="text" placeholder='Título' value={title} onChange={event => setTitle(event.target.value)}/>
+      <input type="text" placeholder='Descrição' value={desc} onChange={event => setDesc(event.target.value)}/>
 
       <button onClick={()=>{
-          setTarefas([...tarefas,{nome: valor}])
-          setValor("")
+          if(title != ""){
+            setTarefas([...tarefas,{titulo: title, desc: desc}])
+            setTitle("")
+            setDesc("")
+          }
         }}>Adicionar</button>
       
       {tarefas.map(tarefa => 
-          <div className='item'>
-            <AiFillCloseSquare className='btn-fechar' size={30} color={'red'} onClick={() => deletarTarefa(tarefa.nome)}/>
-            <h4>{tarefa.nome}</h4>
-          </div>
+          <Task titulo={tarefa.titulo} desc={tarefa.desc} deletar={valor => deletarTarefa(valor)}/>
       )}
     </div>
   );

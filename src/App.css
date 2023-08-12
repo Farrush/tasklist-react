@@ -1,14 +1,26 @@
-.item{
-  position: relative;
-  width: 250px;
-  height: 60px;
+.App{
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  margin: 200px auto;
+  align-items: center;
+  justify-content: center;
+  background-color: #1d116c;
+  padding: 30px;
+  border-radius: 10px;
+  color: #ffff97;
 }
-.item h4{
-  line-break: anywhere;
-  width: 90%;
+
+.App input{
+  padding: 1vh 0.5vw;
+  width: 80%;
+  margin: 10px 0;
+  font-size: 20px;
 }
-.btn-fechar{
-  position: absolute;
-  right: 0;
-  top: 0;
+.App button{
+  font-size: 24px;
+  background-color: #f1d416;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
 }
