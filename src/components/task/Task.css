@@ -2,7 +2,7 @@
     position: relative;
     width: 90%;
     height: 60px;
-    background-color: #110a3f;
+    background-color: #0704164b;
     margin: 10px 0;
     padding: 5px;
 
@@ -13,6 +13,7 @@
   }
   .btn-fechar{
     position: absolute;
+    cursor:pointer;
     right: 0;
     top: 0;
   }

@@ -5,10 +5,10 @@
   margin: 200px auto;
   align-items: center;
   justify-content: center;
-  background-color: #1d116c;
+  background-color: #28253ab4;
   padding: 30px;
   border-radius: 10px;
-  color: #ffff97;
+  color: #f0f0f0;
 }
 
 .App input{
@@ -19,7 +19,8 @@
 }
 .App button{
   font-size: 24px;
-  background-color: #f1d416;
+  cursor: pointer;
+  background-color: #fff673;
   padding: 10px;
   border-radius: 5px;
   font-weight: bold;

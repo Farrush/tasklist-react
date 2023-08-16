@@ -29,8 +29,8 @@ function App() {
       <input type="text" placeholder='Título' value={title} onChange={event => setTitle(event.target.value)}/>
       <input type="text" placeholder='Descrição' value={desc} onChange={event => setDesc(event.target.value)}/>
 
-      <button onClick={()=>{
-          if(title != ""){
+      <button onClick={() => {
+          if(title !== ""){
             setTarefas([...tarefas,{titulo: title, desc: desc}])
             setTitle("")
             setDesc("")
